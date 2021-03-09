@@ -41,8 +41,8 @@ with open(original_file,"rt") as file1:
             #adds variant if it doesn't have gnomAD AF
             if variant["gnomAD_AF"]=="-":
                 ws1.append(list(variant.values()))
-            #adds variant if it's gnomAD AF if less than 10%
-            elif float(variant["gnomAD_AF"])<0.1:
+            #adds variant if it's gnomAD AF if less than 5%
+            elif float(variant["gnomAD_AF"])<0.05:
                 ws1.append(list(variant.values()))
 #saves the Excel workbook                
 wb.save(f"{original_file.strip('.txt')}_FILTERED.xlsx")
