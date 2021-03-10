@@ -1,4 +1,4 @@
-import os, openpyxl, argparse, sys
+import os, openpyxl, argparse, sys, pdb
 
 #Parser to get input file from command line
 #If this were to be used in a pipeline it would be quite straight forward to run this script over multiple files
@@ -19,7 +19,7 @@ if os.path.exists(transcript_file):
     with open(transcript_file,"rt") as file:
         transcripts=[]
         for line in file:
-            transcripts.append(line.strip().split("\t")[0])
+            transcripts.append(line.strip().split("\t")[0].split(".")[0])
 else:
     print("Unable to find transcript file")
     print(f"Ensure {transcript_file} is in same location as script")
